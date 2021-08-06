@@ -1,15 +1,37 @@
 import { Avatar } from '@material-ui/core'
 import { EyeIcon } from '@heroicons/react/outline'
 import React from 'react'
+// import Image from 'next/image'
 
 function Sidebar() {
+
+
+  const recentTopic = (topic) => (
+    <div className="flex cursor-pointer ">
+      <span># </span>
+      <p className="text-xs text-gray-800">{topic}</p>
+    </div>
+  );
+
+  const recentGroup = (group) => (
+    <div className="flex  cursor-pointer">
+      <span># </span>
+      <p className="text-xs text-gray-800">{group}</p>
+    </div>
+  );
+
   return (
-    <div className="hidden md:flex md:flex-col h-screen md:w-2/5 md:flex-grow-0">
+    <div className="hidden md:flex md:flex-col h-screen md:w-2/5 ">
 
       {/*top card */}
       <div className="flex-col bg-white shadow-xl rounded-md mb-2 space-y-2">
-
-        <Avatar className="flex align-center mx-auto mt-10 text-xl" />
+        {/* <Image
+          src="https://cdn57.androidauthority.net/wp-content/uploads/2015/11/00-best-backgrounds-and-wallpaper-apps-for-android-792x446.jpg.webp"
+          alt=""
+          width={300}
+          height={150}
+        /> */}
+        <Avatar className="flex align-center mx-auto mt-5 text-xl" />
 
         <div className="text-sm mt-5 ml-2">
           <h2 className="font-bold text-lg">John Doe</h2>
@@ -46,19 +68,19 @@ function Sidebar() {
       {/*bottom card */}
       <div className="flex-col p-4  bg-white shadow-xl rounded-md text-sm">
         <div className="mb-5">
-          <h3>Recent</h3>
-          <h5># artificialintelligience</h5>
-          <h5># figma</h5>
-          <h5># userexperience</h5>
-          <h5># awsbeanstalk</h5>
+          <h3 className="font-semibold">Recent Tags</h3>
+          <h5>{recentTopic('artificialintelligence')}</h5>
+          <h5>{recentTopic('figma')}</h5>
+          <h5>{recentTopic('userexperience')}</h5>
+          <h5>{recentTopic('awsbeanstalk')}</h5>
         </div>
 
         <div>
-          <h3>Groups</h3>
-          <h5># artificialintelligience</h5>
-          <h5># figma</h5>
-          <h5># userexperience</h5>
-          <h5># awsbeanstalk</h5>
+          <h3 className="font-semibold">Groups</h3>
+          <h5>{recentGroup('dataengineers')}</h5>
+          <h5>{recentGroup('frontenddevelopers')}</h5>
+          <h5>{recentGroup('coding')}</h5>
+          <h5>{recentGroup('reactjs')}</h5>
         </div>
 
 
