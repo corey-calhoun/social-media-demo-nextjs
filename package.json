@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next eslint --ext .ts,.tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && yarn run lint"
+    }
   },
   "dependencies": {
     "@heroicons/react": "^1.0.3",
@@ -20,8 +25,10 @@
     "autoprefixer": "^10.3.1",
     "eslint": "7.32.0",
     "eslint-config-next": "11.0.1",
+    "husky": "^7.0.1",
     "postcss": "^8.3.6",
     "prettier": "2.3.2",
+    "pretty-quick": "^3.1.1",
     "tailwindcss": "^2.2.7"
   }
 }
