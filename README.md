@@ -1,9 +1,9 @@
 # Social Media Demo
 
-NEXTjs
+## NEXTjs
 
-REDUX
+## REDUX
 
-FIREBASE
+## FIREBASE
 
-TAILWINDCSS
+## TAILWINDCSS

@@ -2,8 +2,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import PostFeed from '../components/PostFeed';
 import Sidebar from '../components/Sidebar';
-import '../styles/globals.css'
-
+import '../styles/globals.css';
 function App() {
   return (
     <div className="flex-col min-h-screen bg-indigo-100">
