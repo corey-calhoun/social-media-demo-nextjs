@@ -6,10 +6,10 @@ import '../styles/globals.css'
 
 function App() {
   return (
-    <div className="flex-col min-h-screen">
+    <div className="flex-col min-h-screen bg-indigo-100">
       <Header />
       {/* main body */}
-      <main className="flex md:w-3/4 md:mx-auto">
+      <main className="flex md:w-3/4 md:mx-auto ">
         <Sidebar />
         <PostFeed />
       </main>
