@@ -1,9 +1,47 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import PostAction from './PostAction';
 import Post from './Post';
 import { Camera, Videocam, Image } from '@material-ui/icons';
+import firebase from 'firebase';
+import { db } from '../firebase'
 
 function PostFeed() {
+
+  const [input, setInput] = useState('');
+  const [posts, setPosts] = useState([]);
+
+
+  const sendPost = (e) => {
+    e.preventDefault();
+
+    db
+      .collection('posts')
+      .add({
+        name: 'Alexander Volchekov',
+        description: 'UX/UI Designer',
+        message: { input },
+        photoUrl: '',
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+  }
+
+  //fires off on feed load
+  useEffect(() => {
+    db
+      .collection('posts')
+      .onSnapshot(snapshot => (setPosts(
+        snapshot.docs.map(doc => (
+          {
+            id: doc.id,
+            data: doc.data(),
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          }
+        )))
+      ))
+    return () => {
+
+    }
+  })
   return (
 
     //entire main component container
@@ -14,9 +52,12 @@ function PostFeed() {
 
         <form className="flex h-3/6 rounded-sm">
           <input
+            value={input}
+            onChange={e => setInput(e.target.value)}
             type="text"
             placeholder="Create a post..."
             className="flex w-full rounded-t-sm focus:outline-none "
+            onSubmit={sendPost}
           />
         </form>
 
@@ -31,12 +72,17 @@ function PostFeed() {
 
       {/*main feed section where posts will be displayed */}
       <div className="flex-cols bg-white rounded-md flex-cols mt-2 shadow-xl" >
-        <Post
-          imageUrl='https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-          name='Alexander Verchekov'
-          description='UX/UI Designer'
-          message='Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sunt dolorem, nemo alias quos qui laborum earum voluptas perspiciatis tempore incidunt accusantium facere nihil reiciendis doloremque, distinctio fugit nam ea!'
-        />
+
+        {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+          <Post
+            key={id}
+            name={name}
+            description={description}
+            message={message}
+            photoUrl={photoUrl}
+          />
+        ))}
+
       </div>
 
 

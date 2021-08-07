@@ -32,7 +32,11 @@ function Sidebar() {
           width={300}
           height={150}
         /> */}
-        <Avatar className="flex align-center mx-auto mt-5 text-xl" />
+        <Avatar
+          className="flex align-center mx-auto mt-5 text-xl"
+          src='#'
+          alt=""
+        />
 
         <div className="text-sm mt-5 ml-2">
           <h2 className="font-bold text-lg">John Doe</h2>
@@ -56,7 +60,7 @@ function Sidebar() {
             </div>
           </div>
 
-          <button className=" shadow-md bg-indigo-500 rounded-md text-xs p-1 cursor-pointer ">Go Premium</button>
+          <button className=" shadow-md bg-indigo-500 text-white rounded-md text-xs p-1 cursor-pointer ">Go Premium</button>
 
 
         </div>
