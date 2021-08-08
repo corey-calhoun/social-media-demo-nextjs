@@ -11,37 +11,34 @@ function PostFeed() {
   const [posts, setPosts] = useState([]);
 
 
+
+  //fires off on feed load to display post feed
+  useEffect(() => {
+    db.collection('posts').onSnapshot((snapshot) =>
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    )
+  }, [])
+
   const sendPost = (e) => {
     e.preventDefault();
 
-    db
-      .collection('posts')
-      .add({
-        name: 'Alexander Volchekov',
-        description: 'UX/UI Designer',
-        message: { input },
-        photoUrl: '',
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      })
+    db.collection('posts').add({
+      name: 'Alexander Volchekov',
+      description: 'UX/UI Designer',
+      message: input,
+      photoUrl: '',
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    setInput('');
   }
 
-  //fires off on feed load
-  useEffect(() => {
-    db
-      .collection('posts')
-      .onSnapshot(snapshot => (setPosts(
-        snapshot.docs.map(doc => (
-          {
-            id: doc.id,
-            data: doc.data(),
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          }
-        )))
-      ))
-    return () => {
 
-    }
-  })
   return (
 
     //entire main component container
@@ -53,12 +50,13 @@ function PostFeed() {
         <form className="flex h-3/6 rounded-sm">
           <input
             value={input}
-            onChange={e => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value)}
             type="text"
             placeholder="Create a post..."
             className="flex w-full rounded-t-sm focus:outline-none "
-            onSubmit={sendPost}
+          // onSubmit={sendPost}
           />
+          <button type='submit' onClick={sendPost}>Submit</button>
         </form>
 
         {/* additional post actions like camera functions and uploading images */}
@@ -71,7 +69,7 @@ function PostFeed() {
       </div>
 
       {/*main feed section where posts will be displayed */}
-      <div className="flex-cols bg-white rounded-md flex-cols mt-2 shadow-xl" >
+      <div className="flex-colsrounded-md flex-cols mt-2 shadow-xl space-y-2" >
 
         {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
           <Post

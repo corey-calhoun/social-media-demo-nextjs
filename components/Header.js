@@ -4,7 +4,6 @@ import logo from '../public/site-logo.svg'
 import { BusinessCenterTwoTone, ForumTwoTone, HomeTwoTone, MenuTwoTone, NotificationsTwoTone, SearchTwoTone } from '@material-ui/icons'
 import HeaderOption from './HeaderOption'
 
-import myLogo from '../public/logo1.png';
 
 function Header() {
 
@@ -57,7 +56,7 @@ function Header() {
 
         />
         <HeaderOption
-          avatar={myLogo}
+          avatar='https://i.pinimg.com/564x/0e/ef/01/0eef014a64129951c6524c2c00f4044b.jpg'
           title="user"
 
         />

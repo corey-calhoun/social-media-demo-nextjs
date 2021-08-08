@@ -7,7 +7,7 @@ function Post({ name, description, message, photoUrl }) {
     return (
 
         // main post container
-        <div className="p-2">
+        <div className="p-2 bg-white rounded-md shadow-md">
 
 
 

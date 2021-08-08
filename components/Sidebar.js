@@ -1,4 +1,3 @@
-import { Avatar } from '@material-ui/core'
 import { EyeIcon } from '@heroicons/react/outline'
 import React from 'react'
 // import Image from 'next/image'
@@ -26,15 +25,10 @@ function Sidebar() {
 
       {/*top card */}
       <div className="flex-col bg-white shadow-xl rounded-md mb-2 space-y-2">
-        {/* <Image
-          src="https://cdn57.androidauthority.net/wp-content/uploads/2015/11/00-best-backgrounds-and-wallpaper-apps-for-android-792x446.jpg.webp"
-          alt=""
-          width={300}
-          height={150}
-        /> */}
-        <Avatar
-          className="flex align-center mx-auto mt-5 text-xl"
-          src='#'
+
+        <img
+          className="flex align-center mx-auto mt-5 w-24 h-24  rounded-full"
+          src="https://i.pinimg.com/564x/0e/ef/01/0eef014a64129951c6524c2c00f4044b.jpg"
           alt=""
         />
 
