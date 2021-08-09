@@ -1,14 +1,26 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { auth } from '../firebase'
+import { login } from '../utils/userSlice'
 
 function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const login = (e) => {
+    const loginToApp = (e) => {
         e.preventDefault();
 
+        auth.signInWithEmailAndPassword(email, password).then(
+            (userAuth) => {
+                useDispatch(login({
+                    email: userAuth.user.email,
+                    uid: userAuth.user.uid,
+                    displayName: userAuth.user.displayName,
+                    photoURL: userAuth.user.profileUrl,
+                })
+                );
+            }).catch(error => console.log(error));
 
     }
 
@@ -35,7 +47,7 @@ function Login() {
                 />
                 <button
                     className="flex justify-center mx-auto items-center shadow-xl bg-blue-400 text-white text-2xl w-5/6 md:w-full h-16 rounded-md"
-                    onSubmit={login}
+                    onSubmit={loginToApp}
                 >
                     Login
                 </button>

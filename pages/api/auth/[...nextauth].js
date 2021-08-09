@@ -24,22 +24,18 @@ export default NextAuth({
         }),
         */
         Providers.Facebook({
-            clientId: process.env.FACEBOOK_ID,
-            clientSecret: process.env.FACEBOOK_SECRET,
+            clientId: process.env.NEXT_APP_FACEBOOK_ID,
+            clientSecret: process.env.NEXT_APP_FACEBOOK_SECRET,
         }),
         Providers.GitHub({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET,
+            clientId: process.env.NEXT_APP_GITHUB_ID,
+            clientSecret: process.env.NEXT_APP_GITHUB_SECRET,
             // https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps
             scope: "read:user"
         }),
         Providers.Google({
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        }),
-        Providers.Twitter({
-            clientId: process.env.TWITTER_ID,
-            clientSecret: process.env.TWITTER_SECRET,
+            clientId: process.env.NEXT_APP_GOOGLE_CLIENT_ID,
+            clientSecret: process.env.NEXT_APP_GOOGLE_CLIENT_SECRET,
         }),
         Providers.Auth0({
             clientId: process.env.AUTH0_ID,

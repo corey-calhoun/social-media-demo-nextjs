@@ -3,14 +3,18 @@ import Image from 'next/image'
 import logo from '../public/site-logo.svg'
 import { BusinessCenterTwoTone, ForumTwoTone, HomeTwoTone, MenuTwoTone, NotificationsTwoTone, SearchTwoTone } from '@material-ui/icons'
 import HeaderOption from './HeaderOption'
-
+import { signIn, signOut, useSession } from 'next-auth/client';
 
 function Header() {
+
+  const [session, loading] = useSession();
 
   const handleClick = (e) => {
     e.preventDefault;
 
   }
+
+
 
   return (
     <div className="flex bg-white justify-between md:justify-evenly  items-center py2 mx-auto border-b-2  top-0 sticky z-100">
@@ -57,8 +61,8 @@ function Header() {
         />
         <HeaderOption
           avatar='https://i.pinimg.com/564x/0e/ef/01/0eef014a64129951c6524c2c00f4044b.jpg'
-          title="user"
-
+          title={session ? "Logout" : "Sign in / Register"}
+          onClick={!session ? signIn : signOut}
         />
 
         {/* set hamburger to show on mobile screen */}
