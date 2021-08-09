@@ -5,18 +5,19 @@ import Sidebar from '../components/Sidebar';
 import Login from '../components/Login';
 import { selectUser } from '../utils/userSlice';
 import { useSelector } from "react-redux";
+import Register from "../components/Register";
 
 export default function Home() {
 
   const user = useSelector(selectUser);
 
   return (
-    <div className="flex-col min-h-screen bg-indigo-100">
+    <div className="flex-col h-full bg-indigo-100">
       <Header />
 
       {/*if user not logged in, render Login. otherwise render the main content */}
       {!user ? (
-        <Login />
+        <Register />
       ) : (
         //render main body
         <main className="flex md:w-3/4 md:mx-auto ">

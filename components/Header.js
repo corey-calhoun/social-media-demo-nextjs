@@ -13,7 +13,7 @@ function Header() {
   }
 
   return (
-    <div className="flex bg-white justify-between md:justify-evenly  items-center py2 mx-auto border-b-2 mb-6 top-0 sticky z-100">
+    <div className="flex bg-white justify-between md:justify-evenly  items-center py2 mx-auto border-b-2  top-0 sticky z-100">
       <div className="object-contian flex-shrink-0 flex mx-auto">
         <Image
           src={logo}
