@@ -19,7 +19,7 @@ function Login() {
                     displayName: userAuth.user.displayName,
                     photoURL: userAuth.user.profileUrl,
                 })
-                );
+                )
             }).catch(error => console.log(error));
 
     }
@@ -47,7 +47,7 @@ function Login() {
                 />
                 <button
                     className="flex justify-center mx-auto items-center shadow-xl bg-blue-400 text-white text-2xl w-5/6 md:w-full h-16 rounded-md"
-                    onSubmit={loginToApp}
+                    onSubmit={() => loginToApp(email, password)}
                 >
                     Login
                 </button>

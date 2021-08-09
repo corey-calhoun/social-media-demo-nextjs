@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar';
 import Login from '../components/Login';
 import { auth } from '../firebase';
-import { selectUser, logout } from '../utils/userSlice';
+import { selectUser, logout, login } from '../utils/userSlice';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import Register from "../components/Register";
