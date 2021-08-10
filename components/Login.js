@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { auth } from '../firebase'
 import { login } from '../utils/userSlice'
+import { signin } from 'next-auth/client'
 
 function Login() {
 
@@ -56,9 +57,9 @@ function Login() {
             <h3 className="flex justify-center mx-auto p-10 font-bold md:font-semibold text-xl md:text-3xl ">OR</h3>
 
             <div className="grid space-y-2">
-                <button className="flex mx-auto p-5 shadow-xl bg-white w-3/5 md:w-1/5 rounded-md justify-center ">Sign in with Google</button>
-                <button className="flex mx-auto p-5 shadow-xl bg-white w-3/5 md:w-1/5 rounded-md justify-center ">Sign in with Facebook</button>
-                <button className="flex mx-auto p-5 shadow-xl bg-white w-3/5 md:w-1/5 rounded-md justify-center ">Sign in with Instagram</button>
+                <button className="flex mx-auto p-5 shadow-xl bg-white w-3/5 md:w-1/5 rounded-md justify-center " onClick={signin}>Sign in with Google</button>
+                <button className="flex mx-auto p-5 shadow-xl bg-white w-3/5 md:w-1/5 rounded-md justify-center" onClick={signin}>Sign in with Facebook</button>
+                <button className="flex mx-auto p-5 shadow-xl bg-white w-3/5 md:w-1/5 rounded-md justify-center" onClick={signin}>Sign in with Instagram</button>
             </div>
 
         </div>

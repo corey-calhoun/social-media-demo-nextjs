@@ -8,6 +8,8 @@ import { selectUser, logout, login } from '../utils/userSlice';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import Register from "../components/Register";
+import { useSession, signin } from "next-auth/client"
+
 
 export default function Home() {
 
@@ -38,15 +40,16 @@ export default function Home() {
 
       {/*if user not logged in, render Login. otherwise render the main content */}
       {!user ? (
-        <Login />
+        <Register />
       ) : (
-        //render main body
-        <main className="flex md:w-3/4 md:mx-auto ">
+
+        <main main className="flex md:w-3/4 md:mx-auto ">
           <Sidebar />
           <PostFeed />
         </main>
-      )}
 
+      )
+      }
 
       <Footer />
     </div >
